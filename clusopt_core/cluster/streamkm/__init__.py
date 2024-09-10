@@ -1,8 +1,8 @@
 from sklearn.cluster import KMeans
-from .streamkm import Streamkm as Streamkm_
+from .streamkm import __Streamkm__
 
 
-class Streamkm(Streamkm_):
+class Streamkm(__Streamkm__):
     def get_final_clusters(self, k, seed=0, n_init=3, max_iter=300):
         """clusters coresets with given k using Kmeans++
 

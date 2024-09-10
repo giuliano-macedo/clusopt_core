@@ -1,18 +1,11 @@
+from typing import Tuple
+from numpy.typing import NDArray
 from sklearn.cluster import KMeans
-from .clustream import CluStream as CluStream_
+from .clustream import __CluStream__
 
 
-class CluStream(CluStream_):
-    def init_offline(self, init_points, seed=0, n_init=3, max_iter=300):
-        """
-        initialize microclusters using kmeans++
-
-        Args:
-            init_points (ndarray): points to initialize
-            seed (int):random number generator seed
-            n_init (int): number of kmeans runs
-            max_iter (int): max number of kmeans iterations
-        """
+class CluStream(__CluStream__):
+    def init_offline(self, init_points:NDArray, seed:int=0, n_init:int=3, max_iter:int=300) -> None:
         cluster_centers = (
             KMeans(
                 n_clusters=self.m,
@@ -26,19 +19,7 @@ class CluStream(CluStream_):
         )
         self.init_kernels_offline(cluster_centers, init_points)
 
-    def get_macro_clusters(self, k, seed=0, n_init=3, max_iter=300):
-        """
-        clusters microclusters and returns macroclusters centers
-
-        Args:
-            k (int): number of centers
-            seed (int): random number generator seed
-            n_init (int): number of kmeans runs
-            max_iter (int): max number of kmeans iterations
-
-        Returns:
-                centers,labels
-        """
+    def get_macro_clusters(self, k:int, seed:int=0, n_init:int=3, max_iter:int=300) -> Tuple[NDArray, NDArray]:
         model = KMeans(
             init="k-means++",
             random_state=seed,

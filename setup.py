@@ -4,7 +4,7 @@ from pybind11.setup_helpers import Pybind11Extension
 from functools import partial
 from os import environ
 
-version = "1.1.0"
+version = "1.1.1"
 
 # streamkm original source files are written in C++ syntax but with a .c extension
 # so setting the compiler to g++ forces c++ compilation
