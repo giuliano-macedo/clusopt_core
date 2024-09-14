@@ -32,10 +32,10 @@ jobs:
           python-version: 3.12
           cache: 'pipenv'
 
-      - id: update pip
+      - name: update pip
         run: python -m pip install --upgrade pip
       
-      - id: install build
+      - name: install build
         run: pip install build==1.2.1
 
       - name: Install dependencies
