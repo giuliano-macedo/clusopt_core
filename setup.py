@@ -4,7 +4,8 @@ from pybind11.setup_helpers import Pybind11Extension
 from functools import partial
 from os import environ
 
-version = "1.1.1"
+# this is set automatically by the CI, change this to the new version you want if you plan to release do pypi locally.
+version = "CHANGE ME"
 
 # streamkm original source files are written in C++ syntax but with a .c extension
 # so setting the compiler to g++ forces c++ compilation
