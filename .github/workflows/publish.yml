@@ -24,7 +24,7 @@ jobs:
       - name: Bump version
         run: |
           NEW_VERSION=${{ github.event.release.tag_name }}
-          sed -i "s/version = .*/version = $NEW_VERSION/" setup.py
+          sed -i "s/version = .*/version = \"$NEW_VERSION\"/" setup.py
 
       - name: Set up Python 3.12
         uses: actions/setup-python@v4
